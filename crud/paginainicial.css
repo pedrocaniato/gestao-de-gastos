@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 260  px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.error {
+    color: #d9534f;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none; /* Esconda as mensagens de erro por padrão */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button.clear {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+button.clear:hover {
+    background-color: #ec971f;
+}
+
+button.solid {
+    background-color: #5cb85c;
+    color: white;
+}
+
+button.solid:hover {
+    background-color: #4cae4c;
+}
+
+button.outline {
+    background-color: transparent;
+    color: #5bc0de;
+    border: 1px solid #5bc0de;
+}
+
+button.outline:hover {
+    background-color: #67d8fb;
+    color: white;
+}
+
+/* Estilização do bloqueio de tela */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente */
+    z-index: 9999; /* Garante que o loader esteja sobre outros elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilização do spinner do Bootstrap */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: #007bff; /* Cor do spinner */
+}
+
+/* Mensagem de carregamento */
+.loading label {
+    margin-left: 10px; /* Espaço entre o spinner e o texto */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
