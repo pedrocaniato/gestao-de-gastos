@@ -71,11 +71,11 @@ function register() {
     
     const email = form.email().value;
     const password = form.password().value;
-    firebase.auth().creatUserWithEmailAndPassword(
+    firebase.auth().createUserWithEmailAndPassword(
         email,password
     ).then (() => {
         hideLoading();
-        window.location.href = "pages/home/home.html"
+        window.location.href = "../home/home.html";
     }).catch(error => {
         hideLoading();
         alert(getErrorMessage(error));

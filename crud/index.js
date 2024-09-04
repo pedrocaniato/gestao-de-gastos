@@ -10,13 +10,17 @@ function onChangePassword() {
 
 function login() {
     showLoading();
-    firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value).then(response => {
-          window.location.href = "pages/home/home.html";
-    }).catch(error => {
+    firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value)
+    .then(response => {
+        window.location.href = "pages/home/home.html";
         hideLoading();
-          alert(getErrorMessage(error.code));
+    }).catch(error => {
+        
+        alert(getErrorMessage(error));
     })  
 }
+
+
 
 function register() {
    window.location.href = "pages/register/register.html";
@@ -37,7 +41,7 @@ function getErrorMessage(error) {
     if (error.code == "auth/user-not-found") {
         return "Usuário nao encontrado";
     }
-    if (error.code == "auth/wrong password") {
+    if (error.code == "auth/invalid-credential") {
         return "Senha inválida";
     }
 

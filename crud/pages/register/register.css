@@ -111,4 +111,30 @@ button.outline:hover {
     background-color: #5bc0de;
     color: white;
 }
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente */
+    z-index: 9999; /* Garante que o loader esteja sobre outros elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilização do spinner do Bootstrap */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: #007bff; /* Cor do spinner */
+}
+
+/* Mensagem de carregamento */
+.loading label {
+    margin-left: 10px; /* Espaço entre o spinner e o texto */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
 
