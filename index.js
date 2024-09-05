@@ -10,22 +10,20 @@ function onChangePassword() {
 
 function login() {
     showLoading();
-    firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value)
-    .then(response => {
-        window.location.href = "pages/home/home.html";
+    firebase.auth().signInWithEmailAndPassword(
+        form.email().value, form.password().value
+    ).then(() => {
         hideLoading();
+        window.location.href = "pages/home/home.html";
     }).catch(error => {
-        hideLoading()
-        
+        hideLoading();
         alert(getErrorMessage(error));
-    })  
+    });
 }
-
-
 
 function register() {
    window.location.href = "pages/register/register.html";
-}
+}   
 
 function recoverPassword() {
     showLoading();

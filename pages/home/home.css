@@ -1,0 +1,111 @@
+
+
+header {
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+/* Estilos globais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #87CEEB; /* azul céu claro */
+}
+
+/* Estilo para a lista */
+ol {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Estilo para cada item da lista */
+li {
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+/* Efeito hover nos itens */
+li:hover {
+    transform: scale(1.02);
+}
+
+/* Estilo para despesas */
+li.expense {
+    border-left: 5px solid #FF6F61; /* Cor vermelha para despesas */
+}
+
+/* Estilo para receitas */
+li.income {
+    border-left: 5px solid #4CAF50; /* Cor verde para receitas */
+}
+
+/* Estilo para a data */
+li b {
+    display: block;
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilo para os valores */
+li p:first-of-type {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+/* Estilo para as descrições */
+li p:not(:first-of-type) {
+    color: #666;
+    font-size: 1em;
+    margin: 0;
+}
+
+/* Estilo para o botão */
+button {
+    display: block;
+    width: 200px;
+    padding: 15px;
+    margin: 30px auto;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background-color: #4CAF50; /* Verde para chamar atenção */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Efeito hover */
+button:hover {
+    background-color: #45a049; /* Tom de verde um pouco mais escuro no hover */
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
+/* Efeito de clique */
+button:active {
+    background-color: #3e8e41; /* Verde ainda mais escuro quando clicado */
+    transform: scale(1);
+}
+
+/* Desabilitado */
+button:disabled {
+    background-color: #bbb; /* Cinza para botão desativado */
+    cursor: not-allowed
+
+/* Responsivo */
+@media (max-width: 600px) {
+    li {
+        padding: 15px;
+    }
+}

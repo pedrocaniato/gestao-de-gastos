@@ -1,3 +1,9 @@
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        window.location.href = "../home/home.html";
+    }
+})
+
 function onChangeEmail() {
     const email = form.email().value;
     form.emailRequiredError().style.display = email ? "none" : "block";
@@ -82,8 +88,10 @@ function register() {
     })
 }
 
-function getErrorMessage(error) {
-    return getErrorMessage;
+function getErrorMessage1(error) {
+    if (error.code == "auth/email-already-in-use") {
+        return "Este email já está em uso"
+    }
 }
 
 const form = {
