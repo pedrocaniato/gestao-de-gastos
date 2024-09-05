@@ -15,6 +15,7 @@ function login() {
         window.location.href = "pages/home/home.html";
         hideLoading();
     }).catch(error => {
+        hideLoading()
         
         alert(getErrorMessage(error));
     })  
