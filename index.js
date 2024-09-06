@@ -38,17 +38,18 @@ function recoverPassword() {
         hideLoading();
         alert('Email enviado com sucesso');
     }).catch(error => {
+        console.log(error)
         hideLoading();
         alert(getErrorMessage(error));
     });
 }
 
 function getErrorMessage(error) {
-    if (error.code == "auth/user-not-found") {
-        return "Usuário nao encontrado";
+    if (error.code == "auth/missing-email") {
+        return "Digite algum e-mail"
     }
     if (error.code == "auth/invalid-credential") {
-        return "Senha inválida";
+        return "E-mail ou senha inválido";
     }
 
 }
