@@ -1,3 +1,9 @@
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        window.location.href = "pages/home/home.html";
+    }
+})
+
 function onChangeEmail() {
     toggleButtonsDisable();
     toggleEmailErrors();
@@ -8,7 +14,8 @@ function onChangePassword() {
     togglePasswordErrors();
 }
 
-function login() {
+function login(event) {
+    event.preventDefault()
     showLoading();
     firebase.auth().signInWithEmailAndPassword(
         form.email().value, form.password().value
@@ -31,17 +38,18 @@ function recoverPassword() {
         hideLoading();
         alert('Email enviado com sucesso');
     }).catch(error => {
+        console.log(error)
         hideLoading();
         alert(getErrorMessage(error));
     });
 }
 
 function getErrorMessage(error) {
-    if (error.code == "auth/user-not-found") {
-        return "Usuário nao encontrado";
+    if (error.code == "auth/missing-email") {
+        return "Digite algum e-mail"
     }
     if (error.code == "auth/invalid-credential") {
-        return "Senha inválida";
+        return "E-mail ou senha inválido";
     }
 
 }
