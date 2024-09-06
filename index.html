@@ -8,7 +8,7 @@
 
 </head>
 
-<form>
+<form onsubmit="login(event)">
     <div class="form-field">
         <div><label>Email</label></div>
         <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="onChangeEmail()"/>
@@ -24,7 +24,7 @@
         <button type="button" class="clear" id="recover-password-button" onclick="recoverPassword()">Recuperar senha</button>
     </div>
     <div>
-        <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Entrar</button>
+        <button type="submit" class="solid" id="login-button" disabled="true"">Entrar</button>
     </div>
     <div>
         <button type="button" class="outline" onclick="register()">Registrar</button>

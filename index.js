@@ -8,7 +8,8 @@ function onChangePassword() {
     togglePasswordErrors();
 }
 
-function login() {
+function login(event) {
+    event.preventDefault()
     showLoading();
     firebase.auth().signInWithEmailAndPassword(
         form.email().value, form.password().value
