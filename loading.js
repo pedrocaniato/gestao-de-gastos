@@ -1,7 +1,13 @@
 function showLoading() {
-    document.getElementById('loading-screen').classList.remove('d-none');
+  const loadingScreen = document.getElementById('loading-screen');
+  if (loadingScreen) {
+    loadingScreen.classList.remove('d-none'); // Só executa se o elemento existir
   }
-  
-  function hideLoading() {
-    document.getElementById('loading-screen').classList.add('d-none');
+}
+
+function hideLoading() {
+  const loadingScreen = document.getElementById('loading-screen');
+  if (loadingScreen) {
+    loadingScreen.classList.add('d-none');
   }
+}

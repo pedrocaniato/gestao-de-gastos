@@ -1,22 +1,44 @@
 function logout() {
     firebase.auth().signOut().then(() => {
-        window.location.href ="../../index.html"
-    }).catch(() =>{
-        alert("Erro ao fazer Logout")
+        window.location.href = "../../index.html";
+    }).catch(() => {
+        alert('Erro ao fazer logout');
     })
 }
 
-findTransactions();
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        console.log('Usuário autenticado:', user.uid); // Verificar o UID
+        findTransactions(user);
+    } else {
+        console.log('Nenhum usuário autenticado');
+    }
+}); 
 
-function findTransactions() {
+function newTransaction() {
+    window.location.href = "../transactions/transactions.html";
+}
+
+
+function findTransactions(user) {
+    showLoading();
     firebase.firestore()
         .collection('transactions')
+        .where('user.uid', '==', user.uid)
+        .orderBy('date', 'desc')
         .get()
         .then(snapshot => {
+            hideLoading();
             const transactions = snapshot.docs.map(doc => doc.data());
             addTransactionsToScreen(transactions);
         })
+        .catch(error => {
+            hideLoading();
+            console.log(error);
+            alert('Erro ao recuperar transacoes');
+        })
 }
+
 
 function addTransactionsToScreen(transactions) {
     const orderedList = document.getElementById('transactions');
@@ -52,5 +74,5 @@ function formatDate(date) {
 }
 
 function formatMoney(money) {
-    return `${money.currency} ${money.value.toFixed(2)}`;
+    return `${money.currency} ${money.value.toFixed(2)}`
 }
