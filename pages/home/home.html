@@ -9,12 +9,12 @@
 
 <body>
     <header>
-        <button type="button" class="clear" onclick="logout()">
+        <button type="button" class="clear" id="logout-button" onclick="logout()">
             Logout
         </button>
     </header>
     <ol id="transactions"></ol>
-    <button class="fab fixed bottom right" onclick="newTransaction()">+</button>
+    <button class="fab fixed bottom right" id="add-button" onclick="newTransaction()">+</button>
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>

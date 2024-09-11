@@ -1,10 +1,4 @@
 
-
-header {
-    text-align: right;
-    padding-top: 10px;
-    padding-right: 10px;
-}
 /* Estilos globais */
 body {
     font-family: 'Arial', sans-serif;
@@ -69,43 +63,88 @@ li p:not(:first-of-type) {
     margin: 0;
 }
 
-/* Estilo para o botão */
+/* Estilo comum para todos os botões */
 button {
-    display: block;
-    width: 200px;
-    padding: 15px;
-    margin: 30px auto;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: white;
-    background-color: #4CAF50; /* Verde para chamar atenção */
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s ease;
 }
 
-/* Efeito hover */
-button:hover {
-    background-color: #45a049; /* Tom de verde um pouco mais escuro no hover */
-    transform: scale(1.05); /* Leve aumento no hover */
+/* Estilo para o botão de adicionar transação */
+#add-button {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    font-size: 18px; /* Maior do que o logout */
+    padding: 15px 30px; /* Botão maior */
+    border-radius: 50px; /* Forma circular */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Efeito de clique */
-button:active {
-    background-color: #3e8e41; /* Verde ainda mais escuro quando clicado */
-    transform: scale(1);
+#add-button:hover {
+    background-color: #45a049; /* Mudança de cor ao passar o mouse */
 }
 
-/* Desabilitado */
-button:disabled {
-    background-color: #bbb; /* Cinza para botão desativado */
-    cursor: not-allowed
+/* Estilo para o botão de logout */
+#logout-button {
+    background-color: #FF6347; /* Vermelho tomate */
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#logout-button:hover {
+    background-color: #e0533c; /* Mudança de cor ao passar o mouse */
+}
+
+/* Estilo para o botão com classe 'outline' e 'danger' */
+button.outline.danger {
+    background-color: transparent;
+    border: 2px solid #f44336; /* Vermelho */
+    color: #f44336;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    float: right;
+}
+
+/* Botão "Remover" alinhado com o conteúdo dentro de cada item */
+.transaction-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button.outline.danger:hover {
+    background-color: #f44336; /* Fundo vermelho ao passar o mouse */
+    color: white; /* Texto branco ao passar o mouse */
+    
+}
 
 /* Responsivo */
 @media (max-width: 600px) {
     li {
         padding: 15px;
+        text-align: left;
+    }
+
+    #add-button {
+        bottom: 10px;
+        right: 10px;
     }
 }

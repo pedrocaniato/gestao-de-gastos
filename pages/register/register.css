@@ -138,3 +138,8 @@ button.outline:hover {
     color: #333; /* Cor do texto */
 }
 
+button.danger {
+    width: auto;
+    float: right;
+    display: none;
+}

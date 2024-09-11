@@ -29,7 +29,11 @@ function findTransactions(user) {
         .get()
         .then(snapshot => {
             hideLoading();
-            const transactions = snapshot.docs.map(doc => doc.data());
+            const transactions = snapshot.docs.map(doc => ({
+                ...doc.data(),
+                uid:doc.id
+
+            }));
             addTransactionsToScreen(transactions);
         })
         .catch(error => {
@@ -46,6 +50,19 @@ function addTransactionsToScreen(transactions) {
     transactions.forEach(transaction => {
         const li = document.createElement('li');
         li.classList.add(transaction.type);
+        li.id = transaction.uid;
+        li.addEventListener('click', () => {
+            window.location.href = "../transactions/transactions.html?uid=" + transaction.uid;
+        })
+
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = "Remover";
+        deleteButton.classList.add('outline', 'danger');
+        deleteButton.addEventListener('click', event => {
+            event.stopPropagation();
+            askRemoveTransaction(transaction);
+        })  
+        li.appendChild(deleteButton);
 
         const date = document.createElement('p');
         date.innerHTML = formatDate(transaction.date);
@@ -67,6 +84,31 @@ function addTransactionsToScreen(transactions) {
 
         orderedList.appendChild(li);
     });
+}
+
+function askRemoveTransaction(transaction) {
+    const shouldRemove = confirm('Deseja Remover a transação?');
+    if (shouldRemove) {
+        removeTransaction(transaction);
+    }
+}
+
+function removeTransaction(transaction) {
+    showLoading;
+
+    firebase.firestore()
+        .collection("transactions")
+        .doc(transaction.uid)
+        .delete()
+        .then(() => {
+            hideLoading();
+            document.getElementById(transaction.uid).remove();
+        })
+        .catch(error => {  
+            hideLoading();
+            console.log(error);
+            alert("Erro a Remover Transação");
+        })
 }
 
 function formatDate(date) {
