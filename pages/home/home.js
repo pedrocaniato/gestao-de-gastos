@@ -98,7 +98,8 @@ function removeTransaction(transaction) {
 }
 
 function formatDate(date) {
-    return new Date(date).toLocaleDateString('pt-br');
+    const localDate = new Date(date + 'T00:00:00'); // Adiciona meia-noite para evitar problemas de fuso horário
+    return localDate.toLocaleDateString('pt-BR');
 }
 
 function formatMoney(money) {
